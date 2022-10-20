@@ -1,423 +1,188 @@
 package com.example.chessboard;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
-    ImageView a1,a2,a3,a4,a5,a6,a7,a8;
-    ImageView b1,b2,b3,b4,b5,b6,b7,b8;
-    ImageView c1,c2,c3,c4,c5,c6,c7,c8;
-    ImageView d1,d2,d3,d4,d5,d6,d7,d8;
-    ImageView e1,e2,e3,e4,e5,e6,e7,e8;
-    ImageView f1,f2,f3,f4,f5,f6,f7,f8;
-    ImageView g1,g2,g3,g4,g5,g6,g7,g8;
-    ImageView h1,h2,h3,h4,h5,h6,h7,h8;
+    ImageView boardMatrix[][] = new ImageView[8][8];
+    String chessMatrix[][] = {
+            {"BE","BH","BC","BK","BQ","BC","BH","BE"},
+            {"BP","BP","BP","BP","BP","BP","BP","BP"},
+            {"EE","EE","EE","EE","EE","EE","EE","EE"},
+            {"EE","EE","EE","EE","EE","EE","EE","EE"},
+            {"EE","EE","EE","EE","EE","EE","EE","EE"},
+            {"EE","EE","EE","EE","EE","EE","EE","EE"},
+            {"WP","WP","WP","WP","WP","WP","WP","WP"},
+            {"WE","WH","WC","WQ","WK","WC","WH","WE"},
+    };
+    static HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+
+    boolean whiteTurn = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        a1= findViewById(R.id.a1);
-        a1.setImageResource(R.drawable.brook);
+        hashMap.put("EE", R.drawable.empty);
+        hashMap.put("BE", R.drawable.b_rook);
+        hashMap.put("BH", R.drawable.b_knight);
+        hashMap.put("BC", R.drawable.b_bishop);
+        hashMap.put("BK", R.drawable.b_king);
+        hashMap.put("BQ", R.drawable.b_queen);
+        hashMap.put("BP", R.drawable.b_pawn);
 
-        a2= findViewById(R.id.a2);
-        a2.setImageResource(R.drawable.bbishop);
+        hashMap.put("WE", R.drawable.w_rook);
+        hashMap.put("WH", R.drawable.w_knight);
+        hashMap.put("WC", R.drawable.w_bishop);
+        hashMap.put("WK", R.drawable.w_king);
+        hashMap.put("WQ", R.drawable.w_queen);
+        hashMap.put("WP", R.drawable.w_pawn);
 
-        a3= findViewById(R.id.a3);
-        a3.setImageResource(R.drawable.bknight);
+        boardMatrix[0][0] = (ImageView) findViewById(R.id.a1);
+        boardMatrix[0][1]=  (ImageView) findViewById(R.id.a2);
+        boardMatrix[0][2]=  (ImageView) findViewById(R.id.a3);
+        boardMatrix[0][3]=  (ImageView) findViewById(R.id.a4);
+        boardMatrix[0][4]=  (ImageView) findViewById(R.id.a5);
+        boardMatrix[0][5]=  (ImageView) findViewById(R.id.a6);
+        boardMatrix[0][6]=  (ImageView) findViewById(R.id.a7);
+        boardMatrix[0][7]=  (ImageView) findViewById(R.id.a8);
 
-        a4= findViewById(R.id.a4);
-        a4.setImageResource(R.drawable.bqueen);
+        boardMatrix[1][0] = (ImageView) findViewById(R.id.b1);
+        boardMatrix[1][1]=  (ImageView) findViewById(R.id.b2);
+        boardMatrix[1][2]=  (ImageView) findViewById(R.id.b3);
+        boardMatrix[1][3]=  (ImageView) findViewById(R.id.b4);
+        boardMatrix[1][4]=  (ImageView) findViewById(R.id.b5);
+        boardMatrix[1][5]=  (ImageView) findViewById(R.id.b6);
+        boardMatrix[1][6]=  (ImageView) findViewById(R.id.b7);
+        boardMatrix[1][7]=  (ImageView) findViewById(R.id.b8);
 
-        a5= findViewById(R.id.a5);
-        a5.setImageResource(R.drawable.bking);
-
-        a6= findViewById(R.id.a6);
-        a6.setImageResource(R.drawable.bknight);
-
-        a7= findViewById(R.id.a7);
-        a7.setImageResource(R.drawable.bbishop);
-
-        a8= findViewById(R.id.a8);
-        a8.setImageResource(R.drawable.brook);
-
-        b1=findViewById(R.id.b1);
-        b1.setImageResource(R.drawable.bpawn);
-        b2=findViewById(R.id.b2);
-        b2.setImageResource(R.drawable.bpawn);
-        b3=findViewById(R.id.b3);
-        b3.setImageResource(R.drawable.bpawn);
-        b4=findViewById(R.id.b4);
-        b4.setImageResource(R.drawable.bpawn);
-        b5=findViewById(R.id.b5);
-        b5.setImageResource(R.drawable.bpawn);
-        b6=findViewById(R.id.b6);
-        b6.setImageResource(R.drawable.bpawn);
-        b7=findViewById(R.id.b7);
-        b7.setImageResource(R.drawable.bpawn);
-        b8=findViewById(R.id.b8);
-        b8.setImageResource(R.drawable.bpawn);
-
-
-        c1=findViewById(R.id.c1);
-        c2=findViewById(R.id.c2);
-        c3=findViewById(R.id.c3);
-        c4=findViewById(R.id.c4);
-        c5=findViewById(R.id.c5);
-        c6=findViewById(R.id.c6);
-        c7=findViewById(R.id.c7);
-        c8=findViewById(R.id.c8);
-
-        d1=findViewById(R.id.d1);
-        d2=findViewById(R.id.d2);
-        d3=findViewById(R.id.d3);
-        d4=findViewById(R.id.d4);
-        d5=findViewById(R.id.d5);
-        d6=findViewById(R.id.d6);
-        d7=findViewById(R.id.d7);
-        d8=findViewById(R.id.d8);
+        boardMatrix[2][0] = (ImageView) findViewById(R.id.c1);
+        boardMatrix[2][1]=  (ImageView) findViewById(R.id.c2);
+        boardMatrix[2][2]=  (ImageView) findViewById(R.id.c3);
+        boardMatrix[2][3]=  (ImageView) findViewById(R.id.c4);
+        boardMatrix[2][4]=  (ImageView) findViewById(R.id.c5);
+        boardMatrix[2][5]=  (ImageView) findViewById(R.id.c6);
+        boardMatrix[2][6]=  (ImageView) findViewById(R.id.c7);
+        boardMatrix[2][7]=  (ImageView) findViewById(R.id.c8);
 
 
-        a1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        boardMatrix[3][0] = (ImageView) findViewById(R.id.d1);
+        boardMatrix[3][1]=  (ImageView) findViewById(R.id.d2);
+        boardMatrix[3][2]=  (ImageView) findViewById(R.id.d3);
+        boardMatrix[3][3]=  (ImageView) findViewById(R.id.d4);
+        boardMatrix[3][4]=  (ImageView) findViewById(R.id.d5);
+        boardMatrix[3][5]=  (ImageView) findViewById(R.id.d6);
+        boardMatrix[3][6]=  (ImageView) findViewById(R.id.d7);
+        boardMatrix[3][7]=  (ImageView) findViewById(R.id.d8);
 
-                if (b1.getDrawable() == null){
-                    b1= findViewById(R.id.b1);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
+        boardMatrix[4][0] = (ImageView) findViewById(R.id.e1);
+        boardMatrix[4][1]=  (ImageView) findViewById(R.id.e2);
+        boardMatrix[4][2]=  (ImageView) findViewById(R.id.e3);
+        boardMatrix[4][3]=  (ImageView) findViewById(R.id.e4);
+        boardMatrix[4][4]=  (ImageView) findViewById(R.id.e5);
+        boardMatrix[4][5]=  (ImageView) findViewById(R.id.e6);
+        boardMatrix[4][6]=  (ImageView) findViewById(R.id.e7);
+        boardMatrix[4][7]=  (ImageView) findViewById(R.id.e8);
 
-                        b1.setImageResource(R.drawable.brook);
 
-                        a1.setImageResource(0);
-//                    }
+        boardMatrix[5][0] = (ImageView) findViewById(R.id.f1);
+        boardMatrix[5][1]=  (ImageView) findViewById(R.id.f2);
+        boardMatrix[5][2]=  (ImageView) findViewById(R.id.f3);
+        boardMatrix[5][3]=  (ImageView) findViewById(R.id.f4);
+        boardMatrix[5][4]=  (ImageView) findViewById(R.id.f5);
+        boardMatrix[5][5]=  (ImageView) findViewById(R.id.f6);
+        boardMatrix[5][6]=  (ImageView) findViewById(R.id.f7);
+        boardMatrix[5][7]=  (ImageView) findViewById(R.id.f8);
 
-                }else{
-                    Drawable myDrawable = a1.getDrawable();
-                    String s= myDrawable.toString();
-                    Toast.makeText(MainActivity.this, "Cannot move"+s+"", Toast.LENGTH_SHORT).show();
+        boardMatrix[6][0] = (ImageView) findViewById(R.id.g1);
+        boardMatrix[6][1]=  (ImageView) findViewById(R.id.g2);
+        boardMatrix[6][2]=  (ImageView) findViewById(R.id.g3);
+        boardMatrix[6][3]=  (ImageView) findViewById(R.id.g4);
+        boardMatrix[6][4]=  (ImageView) findViewById(R.id.g5);
+        boardMatrix[6][5]=  (ImageView) findViewById(R.id.g6);
+        boardMatrix[6][6]=  (ImageView) findViewById(R.id.g7);
+        boardMatrix[6][7]=  (ImageView) findViewById(R.id.g8);
 
-                }
+        boardMatrix[7][0] = (ImageView) findViewById(R.id.h1);
+        boardMatrix[7][1]=  (ImageView) findViewById(R.id.h2);
+        boardMatrix[7][2]=  (ImageView) findViewById(R.id.h3);
+        boardMatrix[7][3]=  (ImageView) findViewById(R.id.h4);
+        boardMatrix[7][4]=  (ImageView) findViewById(R.id.h5);
+        boardMatrix[7][5]=  (ImageView) findViewById(R.id.h6);
+        boardMatrix[7][6]=  (ImageView) findViewById(R.id.h7);
+        boardMatrix[7][7]=  (ImageView) findViewById(R.id.h8);
 
+
+        for(int i=0;i<boardMatrix.length;i++) {
+            for(int j=0;j<boardMatrix[i].length;j++) {
+                int finalI = i;
+                int finalJ = j;
+                boardMatrix[i][j].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String clickType = String.valueOf(chessMatrix[finalI][finalJ].toCharArray()[0]);
+                        Log.d("TAGTAG", "onClick: " + finalI + finalJ);
+                        if(clickType.equals("B")) {
+                            if(whiteTurn) {
+                                Toast.makeText(MainActivity.this, "White's Turn", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            if((finalI + 1) == 7) {
+                                Toast.makeText(MainActivity.this, "Black Win's", Toast.LENGTH_SHORT).show();
+                            }
+                            if(chessMatrix[finalI + 1][finalJ].equals("EE")) {
+                                chessMatrix[finalI + 1][finalJ] = chessMatrix[finalI][finalJ];
+                                chessMatrix[finalI][finalJ] = "EE";
+                            } else {
+                                String itemType = String.valueOf(chessMatrix[finalI + 1][finalJ].toCharArray()[0]);
+                                if(itemType.equals("W")) {
+                                    chessMatrix[finalI + 1][finalJ] = chessMatrix[finalI][finalJ];
+                                    chessMatrix[finalI][finalJ] = "EE";
+                                }
+                            }
+                        } else {
+                            if(!whiteTurn) {
+                                Toast.makeText(MainActivity.this, "Black's Turn", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                            if((finalI - 1) == 0) {
+                                Toast.makeText(MainActivity.this, "White Win's", Toast.LENGTH_SHORT).show();
+                            }
+                            if(chessMatrix[finalI - 1][finalJ].equals("EE")) {
+                                chessMatrix[finalI - 1][finalJ] = chessMatrix[finalI][finalJ];
+                                chessMatrix[finalI][finalJ] = "EE";
+                            } else {
+                                String itemType = String.valueOf(chessMatrix[finalI - 1][finalJ].toCharArray()[0]);
+                                if(itemType.equals("B")) {
+                                    chessMatrix[finalI - 1][finalJ] = chessMatrix[finalI][finalJ];
+                                    chessMatrix[finalI][finalJ] = "EE";
+                                }
+                            }
+                        }
+                        whiteTurn = !whiteTurn;
+                        render();
+                    }
+                });
             }
-        });
+        }
 
-        a2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b2.getDrawable() == null){
-                    b2= findViewById(R.id.b2);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                         b2.setImageResource(R.drawable.bbishop);
-                         a2.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Drawable myDrawable = a2.getDrawable();
-                    String s= myDrawable.toString();
-                    Toast.makeText(MainActivity.this, "Cannot move"+s+"", Toast.LENGTH_SHORT).show();
-
-                }
-
+        render();
+    }
+    public void render() {
+        for(int i=0;i<chessMatrix.length;i++) {
+            for(int j=0;j<chessMatrix[i].length;j++) {
+                boardMatrix[i][j].setImageResource(hashMap.get(chessMatrix[i][j]));
             }
-        });
-
-        a3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b3.getDrawable() == null){
-                    b3= findViewById(R.id.b3);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                    b3.setImageResource(R.drawable.bknight);
-                    a3.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        a4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b4.getDrawable() == null){
-                    b4= findViewById(R.id.b4);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                    b4.setImageResource(R.drawable.bqueen) ;
-                    a4.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        a5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b5.getDrawable() == null){
-                    b5= findViewById(R.id.b5);
-                    ImageView v =findViewById(R.id.a5);
-                    Toast.makeText(MainActivity.this, ""+v.getResources()+"", Toast.LENGTH_LONG).show();
-                    ;
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                    b5.setImageResource(R.drawable.bking);
-                    a5.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        a6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b6.getDrawable() == null){
-                    b6= findViewById(R.id.b6);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-
-                    b6.setImageResource(R.drawable.bknight);
-                    a6.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        a7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b7.getDrawable() == null){
-                    b7= findViewById(R.id.b7);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                    b7.setImageResource(R.drawable.bbishop);
-                    a7.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        a8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (b8.getDrawable() == null){
-                    b8= findViewById(R.id.b8);
-//                    ImageView v =findViewById(R.id.a1);
-//                    String bk1= String.valueOf(v.getId());
-//                    Toast.makeText(MainActivity.this, " "+bk1+"", Toast.LENGTH_SHORT).show();
-//                    if(bk1=="brook")
-//                    {
-                    b8.setImageResource(R.drawable.brook);
-                    a8.setImageDrawable(null);
-//                    }
-
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c1.getDrawable() == null){
-                    c1= findViewById(R.id.c1);
-                    c1.setImageResource(R.drawable.bpawn);
-                    b1.setImageDrawable(null);
-                }else{
-                    Drawable myDrawable = b1.getDrawable();
-                    String s= myDrawable.toString();
-                    Toast.makeText(MainActivity.this, "Cannot move"+s+"", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c2.getDrawable() == null){
-                    c2= findViewById(R.id.c2);
-                    c2.setImageResource(R.drawable.bpawn);
-                    b2.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c3.getDrawable() == null){
-                    c3= findViewById(R.id.c3);
-                    c3.setImageResource(R.drawable.bpawn);
-                    b3.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c4.getDrawable() == null){
-                    c4= findViewById(R.id.c4);
-                    c4.setImageResource(R.drawable.bpawn);
-                    b4.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c5.getDrawable() == null){
-                    c5= findViewById(R.id.c5);
-                    c5.setImageResource(R.drawable.bpawn);
-                    b5.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c6.getDrawable() == null){
-                    c6= findViewById(R.id.c6);
-                    c6.setImageResource(R.drawable.bpawn);
-                    b6.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c7.getDrawable() == null){
-                    c7= findViewById(R.id.c7);
-                    c7.setImageResource(R.drawable.bpawn);
-                    b7.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (c8.getDrawable() == null){
-                    c8= findViewById(R.id.c8);
-                    c8.setImageResource(R.drawable.bpawn);
-                    b8.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-
-        c5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(c5.getDrawable()==null){
-                    Toast.makeText(MainActivity.this, "Empty", Toast.LENGTH_SHORT).show();
-
-                }
-
-                else if (d5.getDrawable() == null){
-                    d5= findViewById(R.id.d5);
-                    ImageView v =findViewById(R.id.a5);
-                    Toast.makeText(MainActivity.this, ""+v.getResources()+"", Toast.LENGTH_LONG).show();
-
-                    d5.setImageResource(R.drawable.bpawn);
-                    c5.setImageDrawable(null);
-                }else{
-                    Toast.makeText(MainActivity.this, "Cannot move", Toast.LENGTH_SHORT).show();
-
-                }
-
-            }
-        });
-
-
-
+        }
     }
 }

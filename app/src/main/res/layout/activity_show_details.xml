@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowDetails"
+    android:orientation="vertical"
+    android:paddingTop="100dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_marginTop="0dp"
+    android:id="@+id/liner_image"
+    android:background="@drawable/chess2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Player1 :"
+            android:textStyle="italic|bold"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/Grey"
+            android:textSize="20dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/play1"
+            android:layout_width="100dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:text="xxx"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp">
+
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        >
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="italic|bold"
+            android:fontFamily="sans-serif-black"
+            android:text="Player2 :"
+            android:textColor="@color/Grey"
+            android:textSize="20dp">
+
+        </TextView>
+        <TextView
+            android:id="@+id/play2"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold|italic"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:text="xxx"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp">
+
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+        <TextView
+            android:textStyle="italic|bold"
+            android:fontFamily="sans-serif-black"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Time :"
+            android:textColor="@color/Grey"
+            android:textSize="20dp">
+        </TextView>
+        <TextView
+            android:id="@+id/timesh"
+            android:textStyle="italic|bold"
+            android:fontFamily="sans-serif-black"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:text="xxx"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            ></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+        <TextView
+            android:textStyle="italic|bold"
+            android:fontFamily="sans-serif-black"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Theme :"
+            android:textColor="@color/Grey"
+            android:textSize="20dp"></TextView>
+        <EditText
+            android:id="@+id/theme"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"></EditText>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="70dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Game"
+            android:padding="10dp"
+            android:background="@drawable/round_shape"
+            android:fontFamily="sans-serif-black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:layout_marginLeft="110dp"
+            android:id="@+id/startbtn">
+
+        </androidx.appcompat.widget.AppCompatButton>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

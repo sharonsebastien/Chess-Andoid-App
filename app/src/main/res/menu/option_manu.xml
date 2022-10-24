@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+       android:background="@drawable/menu_design"
+        android:layout_marginLeft="-10dp"
+        android:icon="@drawable/rematch"
+        android:id="@+id/Re_match"
+        android:title="Re Match"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/add_time"
+        android:background="@drawable/menu_design"
+        android:icon="@drawable/add_time"
+        android:title="Add Time"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Cancel"
+        android:background="@drawable/menu_design"
+        android:title="Cancel"
+        android:icon="@drawable/cancel"
+        app:showAsAction="never" />
+</menu>

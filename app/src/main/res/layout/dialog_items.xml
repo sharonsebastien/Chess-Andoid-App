@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/popup_bg"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:background="@android:drawable/divider_horizontal_dark"
+        android:fontFamily="serif"
+        android:shadowColor="@color/white"
+        android:text="Choose"
+        android:textStyle="bold|italic"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+    <LinearLayout
+        android:id="@+id/re"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/rematch"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:text="RE-Match"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/at"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/add_time"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Add-Time"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ht"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/history"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <TextView
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="History"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cn"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/cancel"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <TextView
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Cancel"></TextView>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+
+

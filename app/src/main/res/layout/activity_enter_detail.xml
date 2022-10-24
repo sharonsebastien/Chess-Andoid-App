@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_2"
+    android:id="@+id/imageback"
+    tools:context=".ENTER_DETAIL">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="50dp"
+        android:background="#608F9193"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-10dp"
+            android:textSize="19dp"
+            android:fontFamily="serif"
+            android:padding="20dp"
+            android:text="Player 1"
+            android:textColor="@color/white"></TextView>
+        <EditText
+            android:id="@+id/player_1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/roundedborder"
+            android:textColorHint="@color/white"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="-58dp"
+            android:hint="Enter Name"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="serif"
+            android:padding="20dp"
+            android:text="Player 2 "
+            android:textSize="19dp"
+            android:textColor="@color/white"></TextView>
+        <EditText
+            android:id="@+id/player_2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/roundedborder"
+            android:layout_marginLeft="150dp"
+            android:hint="Enter name"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="-58dp"></EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:text="Color"
+                android:textSize="21dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/White"
+                android:padding="8dp"
+                android:fontFamily="serif"></TextView>
+            <Button
+                android:id="@+id/blackbtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:backgroundTint="@color/black"
+                android:fontFamily="serif"
+                android:text="Black"
+                android:textColor="@color/White"
+                android:layout_marginTop="25dp"
+                ></Button>
+            <Button
+                android:id="@+id/whitebtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="serif"
+                android:text="White"
+                android:textColor="@color/black"
+                android:layout_marginTop="25dp"
+                ></Button>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="serif"
+            android:padding="10dp"
+            android:textSize="19dp"
+            android:text="Select the Time "
+            android:textColor="@color/white"></TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minute_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/round_shape"
+                android:textColor="@color/White"
+                android:fontFamily="serif"
+                android:text="10 Mins"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minute_20"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/round_shape"
+                android:textColor="@color/White"
+                android:fontFamily="serif"
+                android:text="20 Mins"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minute_30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/round_shape"
+                android:textColor="@color/White"
+                android:fontFamily="serif"
+                android:text="30 Mins"></androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="02dp"
+            android:fontFamily="serif"
+            android:padding="10dp"
+            android:textSize="19dp"
+            android:text="Change Background"
+            android:textColor="@color/white"></TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="C_1"
+                android:id="@+id/i1"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_design"
+                android:textColor="@color/White"
+                android:src="@drawable/chess1"></androidx.appcompat.widget.AppCompatButton>
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="C_2"
+                android:id="@+id/i2"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_design"
+                android:textColor="@color/White"
+                android:layout_width="70dp"
+                android:layout_height="40dp"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="C_3"
+                android:id="@+id/i3"
+                android:background="@drawable/button_design"
+                android:layout_marginLeft="10dp"
+                android:layout_width="70dp"
+                android:textColor="@color/White"
+                android:layout_height="40dp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="C_4"
+                android:id="@+id/i4"
+                android:background="@drawable/button_design"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/White"
+                android:layout_width="70dp"
+                android:layout_height="40dp"></androidx.appcompat.widget.AppCompatButton>
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/subbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_design"
+            android:fontFamily="serif"
+            android:text="submit"
+            android:textColor="@color/White"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"></androidx.appcompat.widget.AppCompatButton>
+
+    </LinearLayout>
+
+</LinearLayout>

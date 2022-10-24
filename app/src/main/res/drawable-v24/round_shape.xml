@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle"
+            android:tint="@color/teal_200"
+            android:tintMode="multiply">
+            <gradient android:startColor="#75e275"
+                android:endColor="@color/teal_700"/>
+            <corners android:radius="150dp" />
+            <size android:width="50dp"
+                  android:height="50dp"></size>
+            <corners android:bottomLeftRadius="250dp"
+                android:bottomRightRadius="250dp"
+                android:topLeftRadius="250dp"
+                android:topRightRadius="250dp"></corners>
+
+        </shape>
+    </item>
+</selector>
+
+
+

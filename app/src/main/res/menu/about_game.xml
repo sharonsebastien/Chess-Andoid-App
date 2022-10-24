@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        app:showAsAction="always"
+        android:icon="@drawable/search_bar"
+        android:title="">
+        <menu>
+       <item
+           android:id="@+id/about"
+           android:title="About"
+           android:icon="@drawable/ic_baseline_info_24"
+           app:showAsAction="never"></item>
+      <item
+          android:id="@+id/learn"
+          android:icon="@drawable/search"
+          android:title="Learn"
+          app:showAsAction="never"></item>
+
+        </menu>
+    </item>
+
+</menu>

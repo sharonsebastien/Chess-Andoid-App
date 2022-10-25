@@ -16,10 +16,16 @@
         android:theme="@style/Theme.CHESS_BOARD"
         tools:targetApi="31">
         <activity
-            android:name=".ShowMovesActivity"
+            android:name=".page2"
             android:exported="false" />
         <activity
-            android:name=".History"
+            android:name=".ShowWinnersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Winner"
+            android:exported="false" />
+        <activity
+            android:name=".ShowMovesActivity"
             android:exported="false" />
         <activity
             android:name=".Chessboard"

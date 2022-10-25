@@ -9,37 +9,36 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-public class DBHandler extends SQLiteOpenHelper {
-    public DBHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+public class WinnerDBHandler extends SQLiteOpenHelper {
+    public WinnerDBHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String create ="CREATE TABLE mymovements (sno INTEGER PRIMARY KEY,moves TEXT)";
+        String create ="CREATE TABLE myWinners (sno2 INTEGER PRIMARY KEY,name TEXT)";
         sqLiteDatabase.execSQL(create);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         String drop =String.valueOf("DROP TABLE IF EXISTS");
-        sqLiteDatabase.execSQL(drop,new String[]{"mymovements"});
+        sqLiteDatabase.execSQL(drop,new String[]{"myWinners"});
         onCreate(sqLiteDatabase);
     }
 
-    public void addMovements(Movements m){
+    public void addWinners(WinnerData w){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("moves",m.getMoves());
-        long k = db.insert("mymovements",null,values);
-        Log.d("myTag",Long.toString(k));
+        values.put("name",w.getName());
+        long k = db.insert("myWinners",null,values);
         db.close();
     }
     String s = "";
-    public String getMovements(int sno){
+    public String getWinners(int sno2){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("mymovements",new String[]{"sno","moves"},"sno=?",new String[]{String.valueOf(sno)},
+        Cursor cursor = db.query("myWinners",new String[]{"sno2","name"},"sno2=?",new String[]{String.valueOf(sno2)},
                 null,null,null);
 
         if(cursor != null && cursor.moveToFirst()){
@@ -51,25 +50,22 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return s;
     }
-    public String getAllMovements(){
+
+    public String getAllWinners(){
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM mymovements  ORDER BY sno DESC";
+        String selectQuery = "SELECT * FROM myWinners  ORDER BY sno2 DESC";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         String str = "";
         if(cursor.moveToFirst()) {
             do {
-                str += cursor.getString(1) + " ";
+                str += cursor.getString(1) + "\n";
                 Log.d("myTag moves",cursor.getString(1));
             } while(cursor.moveToNext());
         }
         return str;
     }
 
-    public void remove(){
-        SQLiteDatabase db =this.getWritableDatabase();
-        db.execSQL("DELETE FROM mymovements");
-    }
 
 }

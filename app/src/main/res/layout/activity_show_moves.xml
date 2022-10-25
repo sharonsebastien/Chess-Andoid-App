@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/winner_page3"
     tools:context=".ShowMovesActivity">
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
+        android:id="@+id/textview"
+        android:textColor="@color/brown"
+        android:scrollbars="vertical"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:text="TextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

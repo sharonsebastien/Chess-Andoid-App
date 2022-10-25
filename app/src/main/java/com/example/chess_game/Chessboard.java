@@ -2,6 +2,7 @@ package com.example.chess_game;
 
 import static com.example.chess_game.R.drawable.background_2;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -21,6 +22,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,10 +34,12 @@ import java.util.HashMap;
 public class Chessboard extends AppCompatActivity {
     LinearLayout cancel, restart, add_time, history;
     ImageButton img,Quit,back_home,player_image1,player_image2;
+    EditText player1,player2;
 
     Button button;
-    int count=0;
+    int count=0,count2=0;
     DBHandler handler = new DBHandler(this,"movesDB2",null,1);
+    WinnerDBHandler whandler = new WinnerDBHandler(this,"WinnerDB",null,1);
 
     ImageView boardMatrix[][] = new ImageView[8][8];
     String chessMatrix[][] = {
@@ -65,7 +69,14 @@ public class Chessboard extends AppCompatActivity {
     TextView time1,time2;
     int counter = 0;
     boolean result ;
+    CountDownTimer timer;
 
+    int whiteTimer = 0;
+    int blackTimer = 0;
+
+    int timeLimiter = 0;
+    String p1 = "";
+    String p2 = "";
 
 
     @Override
@@ -74,6 +85,21 @@ public class Chessboard extends AppCompatActivity {
         setContentView(R.layout.activity_chessboard);
 
 
+        Log.d("my","DEST");
+        handler.remove();
+
+        SharedPreferences sh = getSharedPreferences("myuserdetails",MODE_PRIVATE);
+        String time = sh.getString("time","0");
+
+        timeLimiter = Integer.valueOf(time.split(" ")[0]);
+        whiteTimer = timeLimiter * 60;
+        blackTimer = timeLimiter * 60;
+
+        Intent intent = getIntent();
+        p1 = intent.getStringExtra("player1");
+        p2= intent.getStringExtra("player2");
+        Log.d("h",p1);
+        Log.d("LOGGER", " " + timeLimiter);
 
 
         hashMap.put("EE", R.drawable.empty);
@@ -174,10 +200,9 @@ public class Chessboard extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         String clickType = String.valueOf(chessMatrix[finalI][finalJ].toCharArray()[0]);
-                        Log.d("TAGTAG", "onClick: " + finalI + finalJ);
+//                        Log.d("TAGTAG", "onClick: " + finalI + finalJ);
                         if(clickType.equals("B")) {
                             if(whiteTurn) {
-
                                 Toast.makeText(Chessboard.this, "White's Turn ", Toast.LENGTH_SHORT).show();
                                 return;
                             }
@@ -187,9 +212,10 @@ public class Chessboard extends AppCompatActivity {
                                 chessMatrix[finalI][finalJ] = "EE";
 
                                 String b = idMatrix[finalI][finalJ]+" TO "+idMatrix[finalI + 1][finalJ]+", ";
-                                Toast.makeText(Chessboard.this, ""+b, Toast.LENGTH_SHORT).show();
                                 handler.addMovements(new Movements(1,b));
                                 count++;
+
+                                whiteTurn = !whiteTurn;
                             } else {
                                 String itemType = String.valueOf(chessMatrix[finalI + 1][finalJ].toCharArray()[0]);
                                 if(itemType.equals("W")) {
@@ -197,16 +223,22 @@ public class Chessboard extends AppCompatActivity {
                                     chessMatrix[finalI][finalJ] = "EE";
 
                                     String b = idMatrix[finalI][finalJ]+" TO "+idMatrix[finalI + 1][finalJ]+", ";
-                                    Toast.makeText(Chessboard.this, ""+b, Toast.LENGTH_SHORT).show();
                                     handler.addMovements(new Movements(1,b));
                                     count++;
+
+                                    whiteTurn = !whiteTurn;
                                 }
                             }
                             if((finalI + 1) == 7) {
                                 Toast.makeText(Chessboard.this, "Black Win's", Toast.LENGTH_SHORT).show();
+                                String winner = p1+" wins over "+p2;
+                                whandler.addWinners(new WinnerData(1,winner));
+                                count2++;
+                                Intent intent2 = new Intent(getApplicationContext(),Winner.class);
+                                intent2.putExtra("keyP", p1);
+                                startActivity(intent2);
 
                             }
-                            whiteTurn = !whiteTurn;
                         } else if(clickType.equals("W")){
                             if(!whiteTurn) {
                                 Toast.makeText(Chessboard.this, "Black's Turn", Toast.LENGTH_SHORT).show();
@@ -218,9 +250,9 @@ public class Chessboard extends AppCompatActivity {
                                 chessMatrix[finalI][finalJ] = "EE";
 
                                 String b = idMatrix[finalI][finalJ]+" TO "+idMatrix[finalI - 1][finalJ]+", ";
-                                Toast.makeText(Chessboard.this, ""+b, Toast.LENGTH_SHORT).show();
                                 handler.addMovements(new Movements(1,b));
                                 count++;
+                                whiteTurn = !whiteTurn;
                             } else {
                                 String itemType = String.valueOf(chessMatrix[finalI - 1][finalJ].toCharArray()[0]);
                                 if(itemType.equals("B")) {
@@ -228,17 +260,23 @@ public class Chessboard extends AppCompatActivity {
                                     chessMatrix[finalI][finalJ] = "EE";
 
                                     String b = idMatrix[finalI][finalJ]+" TO "+idMatrix[finalI - 1][finalJ]+", ";
-                                    Toast.makeText(Chessboard.this, ""+b, Toast.LENGTH_SHORT).show();
-                                    //handler.addMovements(new Movements(1,b));
+                                    handler.addMovements(new Movements(1,b));
                                     count++;
+                                    whiteTurn = !whiteTurn;
                                 }
                                 if((finalI - 1) == 0) {
                                     Toast.makeText(Chessboard.this, "White Win's", Toast.LENGTH_SHORT).show();
+
+                                    String winner = p2+" wins over "+p1;
+                                    whandler.addWinners(new WinnerData(1,winner));
+                                    count2++;
+
+                                    Intent intent2 = new Intent(getApplicationContext(),Winner.class);
+                                    intent2.putExtra("keyP", p2);
+                                    startActivity(intent2);
                                 }
                             }
-                            whiteTurn = !whiteTurn;
-                        }
-                        else if(clickType.equals("E")){
+                        }  else if(clickType.equals("E")){
                             Toast.makeText(Chessboard.this, "Empty Cell", Toast.LENGTH_SHORT).show();
                         }
 
@@ -268,15 +306,12 @@ public class Chessboard extends AppCompatActivity {
         player_image1 = findViewById(R.id.player_image1);
         player_image2 = findViewById(R.id.player_image2);
 
-        SharedPreferences sh = getSharedPreferences("myuserdetails", MODE_PRIVATE);
         String n1 = sh.getString("name1", "");
         String n2 = sh.getString("name2", "");
         String t1 = sh.getString("time", "");
         String t2 = sh.getString("time", "");
         name1.setText(n1.toUpperCase());
         name2.setText(n2.toUpperCase());
-
-
 
 
 
@@ -303,21 +338,7 @@ public class Chessboard extends AppCompatActivity {
             }
         });
 
-        new CountDownTimer(50000, 1000) {
 
-            @Override
-            public void onTick(long l) {
-                time1.setText(String.valueOf(counter));
-                time2.setText(String.valueOf(counter));
-                counter++;
-            }
-
-            @Override
-            public void onFinish() {
-                time2.setText("finished");
-                time1.setText("finished");
-            }
-        }.start();
 
 
     }
@@ -329,11 +350,53 @@ public class Chessboard extends AppCompatActivity {
     }
 
     public void render() {
+        if(timer != null) {
+            timer.cancel();
+        }
         for(int i=0;i<chessMatrix.length;i++) {
             for(int j=0;j<chessMatrix[i].length;j++) {
                 boardMatrix[i][j].setImageResource(hashMap.get(chessMatrix[i][j]));
             }
         }
+
+        timer = new CountDownTimer(5000000, 1000) {
+            @Override
+            public void onTick(long l) {
+                if(whiteTurn) {
+                    if(whiteTimer > 1) {
+                        time2.setText(String.valueOf(whiteTimer--));
+                    } else {
+                        String winner = p1 +" wins over "+ p2;
+                        whandler.addWinners(new WinnerData(1,winner));
+
+                        Intent intent2 = new Intent(getApplicationContext(),Winner.class);
+                        intent2.putExtra("keyP", p1);
+                        startActivity(intent2);
+                        timer.cancel();
+                    }
+                } else {
+                    if(blackTimer > 1) {
+                        time1.setText(String.valueOf(blackTimer--));
+                    } else {
+
+
+                        String winner = p2 +" wins over "+ p1;
+                        whandler.addWinners(new WinnerData(1,winner));
+
+                        Intent intent2 = new Intent(getApplicationContext(),Winner.class);
+                        intent2.putExtra("keyP", p2);
+                        startActivity(intent2);
+                        timer.cancel();
+                    }
+                }
+            }
+
+            @Override
+            public void onFinish() {
+//                time2.setText("finished");
+//                time1.setText("finished");
+            }
+        }.start();
     }
 
 
@@ -350,7 +413,10 @@ public class Chessboard extends AppCompatActivity {
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Chessboard.this, "this is restart", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+                Toast.makeText(Chessboard.this, "Restarted", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -362,21 +428,21 @@ public class Chessboard extends AppCompatActivity {
         add_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Chessboard.this, "this is add time", Toast.LENGTH_SHORT).show();
+                whiteTimer += 1 * 60;
+                blackTimer += 1 * 60;
+                time1.setText(String.valueOf(blackTimer));
+                time2.setText(String.valueOf(whiteTimer));
+                dialog.cancel();
             }
         });
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                StringBuilder s= new StringBuilder("");
-                for(int i=1;i<=count;i++){
-                    s.append(handler.getMovements(i));
-                }
-                Log.d("myT", String.valueOf(s));
+                Log.d("myT", String.valueOf(handler.getAllMovements()));
                 Intent intent = new Intent(getApplicationContext(),ShowMovesActivity.class);
-                intent.putExtra("key1", (CharSequence) s);
+                intent.putExtra("key1", handler.getAllMovements());
                 startActivity(intent);
-
+                dialog.cancel();
             }
         });
         dialog.show();

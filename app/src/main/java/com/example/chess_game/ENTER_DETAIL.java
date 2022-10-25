@@ -91,7 +91,7 @@ Button time1,time2,time3;
             @Override
             public void onClick(View view) {
                 time = 10;
-                myedit.putString("time", time1.getText().toString());
+                myedit.putString("time", "1");
                 details.setTime(time1.getText().toString());
 
             }

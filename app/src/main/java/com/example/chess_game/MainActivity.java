@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-TextView tw;
-LinearLayout lw;
-Button play_begin;
+    TextView tw;
+    LinearLayout lw;
+    Button play_begin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ Button play_begin;
         play_begin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ENTER_DETAIL.class);
+                Intent intent = new Intent(MainActivity.this, page2.class);
                 startActivity(intent);
             }
         });

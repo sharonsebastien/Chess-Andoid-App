@@ -19,11 +19,11 @@
         android:padding="5dp"
         >
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
-            android:text="Player1 :"
+            android:text="Player1 (Black):"
             android:textStyle="italic|bold"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/Grey"
@@ -38,7 +38,7 @@
             android:text="xxx"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp">
 
         </TextView>
@@ -52,13 +52,13 @@
         android:padding="5dp"
         >
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="15dp"
             android:textStyle="italic|bold"
             android:fontFamily="sans-serif-black"
-            android:text="Player2 :"
+            android:text="Player2 (White):"
             android:textColor="@color/Grey"
             android:textSize="20dp">
 
@@ -72,7 +72,7 @@
             android:textColor="@color/white"
             android:text="xxx"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textSize="20dp">
 
         </TextView>
@@ -108,30 +108,7 @@
             android:textSize="20dp"
             ></TextView>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:padding="5dp">
-        <TextView
-            android:textStyle="italic|bold"
-            android:fontFamily="sans-serif-black"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
-            android:text="Theme :"
-            android:textColor="@color/Grey"
-            android:textSize="20dp"></TextView>
-        <EditText
-            android:id="@+id/theme"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"></EditText>
-    </LinearLayout>
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,8 +119,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Start Game"
+
+            android:background="@drawable/button_design"
             android:padding="10dp"
-            android:background="@drawable/round_shape"
+            android:textColor="@color/white"
+
             android:fontFamily="sans-serif-black"
             android:textSize="20dp"
             android:textStyle="bold|italic"

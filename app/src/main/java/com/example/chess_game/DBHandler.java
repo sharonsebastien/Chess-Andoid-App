@@ -60,7 +60,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String str = "";
         if(cursor.moveToFirst()) {
             do {
-                str += cursor.getString(1) + " ";
+                str += cursor.getString(1) + " \n";
                 Log.d("myTag moves",cursor.getString(1));
             } while(cursor.moveToNext());
         }

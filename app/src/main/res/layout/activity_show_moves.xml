@@ -8,8 +8,9 @@
     tools:context=".ShowMovesActivity">
 
     <TextView
+        android:layout_margin="10dp"
         android:id="@+id/textview"
-        android:textColor="@color/brown"
+        android:textColor="@color/white"
         android:scrollbars="vertical"
         android:textSize="30dp"
         android:layout_width="match_parent"

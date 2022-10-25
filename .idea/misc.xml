@@ -3,26 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_about.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_chessboard.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_enter_detail.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_history.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_learn_game.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_page2.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_show_details.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_show_moves.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_show_winners.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/activity_winner.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/sharon/Desktop/FINAL_25TH_AP/CHESS_FINAL_ZIP1/CHESS_GAME/app/src/main/res/layout/dialog_items.xml" value="0.23229166666666667" />
-        <entry key="..\:/final chess/CHESS_FINAL_ZIP/CHESS_GAME/app/src/main/res/layout/activity_chessboard.xml" value="0.25416666666666665" />
-        <entry key="..\:/final chess/CHESS_FINAL_ZIP/CHESS_GAME/app/src/main/res/layout/activity_enter_detail.xml" value="0.25416666666666665" />
-        <entry key="..\:/final chess/CHESS_FINAL_ZIP/CHESS_GAME/app/src/main/res/layout/activity_page2.xml" value="0.25416666666666665" />
-        <entry key="..\:/final chess/CHESS_FINAL_ZIP/CHESS_GAME/app/src/main/res/layout/activity_show_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sharon/Desktop/AP_STUDY/ChessBoard/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14402173913043478" />
+        <entry key="app/src/main/res/layout/activity_show_moves.xml" value="0.5036844889322918" />
+        <entry key="app/src/main/res/layout/activity_show_winners.xml" value="0.8942469278971354" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
